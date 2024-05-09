@@ -8,13 +8,50 @@
 <body>
     <p id="text">Enter Rock paper or Scissors</p>
     <button onclick="getHumanChoice()">Click here!</button>
+    <div id="score">Score</div>
+    <div id="humanScore">Your Score</div>
+    <div id="computerScore">Computer Score</div>
+
     <script>
-        function 
+  
+        let humanScore = 0;
+        let computerScore = 0;
+        let roundWinner = ''
+            for (let i=0; i < 5; i++) {
+            }
+        
+        function playRound (roundWinner, playerSelection, computerSelection) {
+            if (playerSelection === computerSelection) {
+                roundWinner = 'tie'
+                }
+            if (
+                (playerSelection === 'rock' && computerSelection === 'scissors') ||
+                (playerSelection === 'paper' && computerSelection === 'rock') ||
+                (playerSelection === 'scissors' && computerSelection === 'paper') 
+                ){
+                    roundWinner = 'You win!'
+                    humanScore++
+            }
+            if (
+                (computerSelection === 'rock' && playerSelection === 'scissors') ||
+                (computerSelection === 'paper' && playerSelection === 'rock') ||
+                (computerSelection === 'scissors' && playerSelection === 'paper') 
+                ){
+                    roundWinner = 'Computer wins!'
+                    computerScore++
+                }
+                console.log(playRound(roundWinner));
+                console.log(playRound(computerSelection));
+                console.log(playRound(playerSelection));
+        }   
+
             function getHumanChoice () {
                 let answer = prompt("Choose rock, paper or scissors");
-                if (answer != null) {
-                    document.getElementById("text").innerHTML = "You have choosen " + answer
-            }
+                let lowerCaseAnswer = answer.toLowerCase();
+                    if (answer != null) {
+                        document.getElementById("text").innerHTML = "You have chosen " + answer            
+                }
+                    console.log(lowerCaseAnswer);
             }
 
             function getComputerChoice () {
@@ -27,7 +64,8 @@
                         return "scissors"
                     }
             }
-        console.log(getComputerChoice());
+                console.log(getComputerChoice());
+            
 
     
        
