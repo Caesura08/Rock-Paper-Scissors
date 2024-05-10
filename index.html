@@ -7,7 +7,7 @@
 </head>
 <body>
     <p id="text">Enter Rock paper or Scissors</p>
-    <button onclick="getHumanChoice()">Click here!</button>
+    <button onclick="getHumanChoice(), getComputerChoice ()">Click here!</button>
     <div id="score">Score</div>
     <div id="humanScore">Your Score</div>
     <div id="computerScore">Computer Score</div>
@@ -20,34 +20,42 @@
             for (let i=0; i < 5; i++) {
             }
         
-        function playRound (roundWinner, playerSelection, computerSelection) {
-            if (playerSelection === computerSelection) {
-                roundWinner = 'tie'
+        function playGame (playRound) {
+            return playRound * 5
+            console.log (playGame);
+
+            function playRound (roundWinner, humanScore, computerScore) {
+                if (humanScore === computerScore) {
+                    roundWinner = 'tie'
+                    }
+                if (
+                    (humanScore === 'rock' && computerScore === 'scissors') ||
+                    (humanScore === 'paper' && computerScore === 'rock') ||
+                    (humanScore === 'scissors' && computerScore === 'paper') 
+                    ){
+                        roundWinner = 'You win!'
+                        humanScore++
                 }
-            if (
-                (playerSelection === 'rock' && computerSelection === 'scissors') ||
-                (playerSelection === 'paper' && computerSelection === 'rock') ||
-                (playerSelection === 'scissors' && computerSelection === 'paper') 
-                ){
-                    roundWinner = 'You win!'
-                    humanScore++
+                if (
+                    (computerScore === 'rock' && humanScore === 'scissors') ||
+                    (computerScore === 'paper' && humanScore === 'rock') ||
+                    (computerScore === 'scissors' && humanScore === 'paper') 
+                    ){
+                        roundWinner = 'Computer wins!'
+                        computerScore++
+                    }
+                    console.log(playRound(roundWinner));
+                    console.log(playRound(computerScore));
+                    console.log(playRound(humanScore));
+            } else {
+                playRound = null;
+                return "Please enter rock, paper or scissors";
             }
-            if (
-                (computerSelection === 'rock' && playerSelection === 'scissors') ||
-                (computerSelection === 'paper' && playerSelection === 'rock') ||
-                (computerSelection === 'scissors' && playerSelection === 'paper') 
-                ){
-                    roundWinner = 'Computer wins!'
-                    computerScore++
-                }
-                console.log(playRound(roundWinner));
-                console.log(playRound(computerSelection));
-                console.log(playRound(playerSelection));
-        }   
+        }  
 
             function getHumanChoice () {
                 let answer = prompt("Choose rock, paper or scissors");
-                let lowerCaseAnswer = answer.toLowerCase();
+                    let lowerCaseAnswer = answer.toLowerCase();
                     if (answer != null) {
                         document.getElementById("text").innerHTML = "You have chosen " + answer            
                 }
@@ -62,6 +70,7 @@
                         return "paper"
                     } else if (getComputerChoice <= 2) {
                         return "scissors"
+                        document.getElementById("text").innerHTML = "Computer chose " + getComputerChoice ()
                     }
             }
                 console.log(getComputerChoice());
