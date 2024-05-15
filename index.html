@@ -3,83 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p id="text">Enter Rock paper or Scissors</p>
-    <button onclick="getHumanChoice()">Click here!</button>
-    <div id="score">Score</div>
-    <div id="humanScore">Your Score</div>
-    <div id="computerScore">Computer Score</div>
-
-    <script>
-  
-        let humanScore = 0;
-        let computerScore = 0;
-        let roundWinner = ''
-            for (let i=0; i < 5; i++) {
-            }
-        
-        function playRound (roundWinner, playerSelection, computerSelection) {
-            if (playerSelection === computerSelection) {
-                roundWinner = 'tie'
-                }
-            if (
-                (playerSelection === 'rock' && computerSelection === 'scissors') ||
-                (playerSelection === 'paper' && computerSelection === 'rock') ||
-                (playerSelection === 'scissors' && computerSelection === 'paper') 
-                ){
-                    roundWinner = 'You win!'
-                    humanScore++
-            }
-            if (
-                (computerSelection === 'rock' && playerSelection === 'scissors') ||
-                (computerSelection === 'paper' && playerSelection === 'rock') ||
-                (computerSelection === 'scissors' && playerSelection === 'paper') 
-                ){
-                    roundWinner = 'Computer wins!'
-                    computerScore++
-                }
-                console.log(playRound(roundWinner));
-                console.log(playRound(computerSelection));
-                console.log(playRound(playerSelection));
-        }   
-
-            function getHumanChoice () {
-                let answer = prompt("Choose rock, paper or scissors");
-                let lowerCaseAnswer = answer.toLowerCase();
-                    if (answer != null) {
-                        document.getElementById("text").innerHTML = "You have chosen " + answer            
-                }
-                    console.log(lowerCaseAnswer);
-            }
-
-            function getComputerChoice () {
-                let getComputerChoice = Math.floor(Math.random() * 3);
-                    if (getComputerChoice <= 0) {
-                        return "rock"
-                    } else if (getComputerChoice <= 1) {
-                        return "paper"
-                    } else if (getComputerChoice <= 2) {
-                        return "scissors"
-                    }
-            }
-                console.log(getComputerChoice());
-            
-
-    
-       
-
-
-        
-
-
-    
-
-       
-        
-    
-    </script>
+    <div class="container">
+        <div class="directions">
+            <p>Choose rock, paper, or scissors!</p>
+        </div>
+    </div>
+    <div class="container-two">
+        <div class="play">
+            <button><img src="images/rock.png"></button>
+            <button><img src="images/paper.png"></button>
+            <button><img src="images/scissors.png"></button>
+        </div>
+    </div>
+    <div class="score-keeper">
+        <div class="player-score">Your Score:</div>
+        <div class="computer-score">Computer score:</div>
+    </div>
 </body>
 </html>
 
