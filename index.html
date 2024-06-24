@@ -7,27 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="directions">
-            <p>Choose rock, paper, or scissors!</p>
-        </div>
-    </div>
-    <div class="container-two">
-        <div class="play">
-            <button class="rock"><img src="images/rock.png"></button>
-            <button class="paper"><img src="images/paper.png"></button>
-            <button class="scissors"><img src="images/scissors.png"></button>
-            <div class="result"></div>
-        </div>
-    </div>
-    <div class="score-text">
-        <div class="player">Your Score:</div>
-        <div class="computer">Computer score:</div>
-    </div>
-    <div class="score-keeper">
-        <div class="player-score"></div>
-        <div class="computer-score"></div>
-    </div>
+    <p>Enter rock, paper or scissors!</p>
+    <button>Rock</button>
+    <button>Paper</button>
+    <button>Scissors</button>
+    <script>
+        function computer (computerChoice) {
+        computer(Math.floor(Math.random) * computerChoice.length);
+        }
+    </script>
 </body>
 <script src="javascript.js"></script>
 </html>
